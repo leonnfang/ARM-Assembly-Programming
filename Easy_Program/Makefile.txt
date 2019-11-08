@@ -1,0 +1,17 @@
+all: fib collatz
+
+fib: fib.o
+	gcc -o fib fib.o
+
+collatz: collatz.o
+		gcc -o collatz collatz.o
+	
+collatz.o: collatz.s
+	as -o collatz.o collatz.s
+
+fib.o: fib.s
+	as -o fib.o fib.s
+	
+clean:
+	rm -vf fib fib.o
+	rm -vf collatz collatz.o
